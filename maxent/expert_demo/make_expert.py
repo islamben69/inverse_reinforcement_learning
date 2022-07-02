@@ -2,7 +2,8 @@ import gym
 import readchar
 import numpy as np
 
-# # MACROS
+# # MACROS 
+#trois actions possibles
 Push_Left = 0
 No_Push = 1
 Push_Right = 2
@@ -40,13 +41,3 @@ for episode in range(20): # n_trajectories : 20
 
         trajectory.append((state[0], state[1], action))
         step += 1
-
-    # trajectory_numpy = np.array(trajectory, float)
-    # print("trajectory_numpy.shape", trajectory_numpy.shape)
-    # episode_step += 1
-    # trajectories.append(trajectory)
-
-# np_trajectories = np.array(trajectories, float)
-# print("np_trajectories.shape", np_trajectories.shape)
-
-# np.save("expert_trajectories", arr=np_trajectories)

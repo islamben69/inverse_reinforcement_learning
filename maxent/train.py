@@ -9,7 +9,7 @@ n_actions = 3
 one_feature = 20 # nombre etats pour une caracteristiques , 20
 q_table = np.zeros((n_states, n_actions)) # (400, 3)
 
-feature_matrix = np.eye((n_states)) # (400, 400) represente l'espace des etats
+feature_matrix = np.eye((n_states)) # (400, 400) : l'espace des etats
 
 gamma = 0.99
 q_learning_rate = 0.03
@@ -37,7 +37,7 @@ def idx_demo(env, one_feature):
     return demonstrations
 
 def idx_state(env, state):
-    env_low = env.observation_space.low
+    env_low = env.observation_space.low 
     env_high = env.observation_space.high 
     env_distance = (env_high - env_low) / one_feature 
     position_idx = int((state[0] - env_low[0]) / env_distance[0])
@@ -59,13 +59,13 @@ def main():
     expert = expert_feature_expectations(feature_matrix, demonstrations)
     learner_feature_expectations = np.zeros(n_states)
 
-    theta = -(np.random.uniform(size=(n_states,)))
+     
 
     episodes, scores = [], []
 
     for episode in range(30000):
-        state = env.reset()
-        score = 0
+        state = env.reset()                            
+                                                                          
 
         if (episode != 0 and episode == 10000) or (episode > 10000 and episode % 5000 == 0):
             learner = learner_feature_expectations / episode
